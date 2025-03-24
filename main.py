@@ -49,15 +49,15 @@ products = [
 shipping_addresses = [{"id": 1, "city": "", "country": ""}]
 
 # API ENDPOINTS: /products; /product/id; /shipping
-@app.get("/")
+@app.get("/api")
 def home():
     return "<h1>WELCOME TO DAVID AGBEMUKO MOCK DATA SERVER</h1>"
 
-@app.get("/products")
+@app.get("/api/products")
 def get_products():
     return {"products": products}
 
-@app.get("/products/{product_id}")
+@app.get("/api/products/{product_id}")
 def get_product(product_id: int):
     product = None
     for p in products:
@@ -66,6 +66,6 @@ def get_product(product_id: int):
             break  
     return product or {"error": "Product not found"}
 
-@app.get("/shipping")
+@app.get("/api/shipping")
 def get_shipping_addresses():
     return {"shippingAddress": shipping_addresses}
