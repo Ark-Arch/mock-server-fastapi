@@ -38,6 +38,10 @@ products = [
 shipping_addresses = [{"id": 1, "city": "", "country": ""}]
 
 # API ENDPOINTS: /products; /product/id; /shipping
+@app.get("/")
+def home():
+    return "<h1>WELCOME TO DAVID AGBEMUKO MOCK DATA SERVER</h1>"
+
 @app.get("/products")
 def get_products():
     return {"products": products}
